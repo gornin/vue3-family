@@ -1,5 +1,7 @@
 # {{name}}
 
+> 参考：https://blog.51cto.com/u_15478221/5777200
+
 ## 安装 Vue3 + Ts + Vite
 
 ```
@@ -369,4 +371,4 @@ export const user = defineStore("user", {
 npm install --save-dev less-loader less
 ```
 
-直接使用即可。
+直接使用即可，这里选了 sass

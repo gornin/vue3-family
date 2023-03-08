@@ -1,20 +1,42 @@
 {
-  "compilerOptions": {
-    // 写过vue2的人都知道，vue的template里，只能有一个根标签，使用多标签，vetur插件就会提示你有错误，但是vue3之后，去掉了这个限制，template标签里是允许有多个标签的，这是vue3.0的新功能，所以我们需要使用适合vue3的volar插件
-    "types": ["element-plus/global"],
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+    "compilerOptions": {
+        // 设置​​baseUrl​​​来告诉编译器到哪里去查找模块。所有非相对模块导入都会被当做相对于​​baseUrl​​。
+        "baseUrl": "./",
+        // 添加要包含的类型声明文件名列表，只有在这里列出的模块的声明文件才会被加载进来
+        // 资源导入 (例如：导入一个​​.svg​​文件)
+        // ​​import.meta.env​​上 Vite 注入的环境变量的类型定义
+        // ​​import.meta.hot​​上的 HMR API 类型定义
+        // 写过vue2的人都知道，vue的template里，只能有一个根标签，使用多标签，vetur插件就会提示你有错误，但是vue3之后，去掉了这个限制，template标签里是允许有多个标签的，这是vue3.0的新功能，所以我们需要使用适合vue3的volar插件
+        "types": ["vite/client", "element-plus/global"],
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "resolveJsonModule": true,
+        // 将每个文件作为单独的模块
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "lib": ["ESNext", "DOM"],
+        // 忽略所有的声明文件（​​*.d.ts​​）的类型检查
+        // 不但可以忽略 npm 不规范带来的报错，还能最大限度的支持类型系统
+        "skipLibCheck": true,
+        // 模块名到基于​​baseUrl​​的路径映射的列表，编译 ts 时也能够解析对应的路径
+        "paths": {
+            "@/*": ["src/*"],
+            "views/*": ["src/views/*"],
+            "components/*": ["src/components/*"],
+            "assets/*": ["src/assets/*"]
+        }
+    },
+    // 将第三方依赖包、打包后的静态文件都排除在外，不编译
+    "exclude": ["node_modules", "dist"],
+    // 对 src 下的​​.ts、.d.ts、.tsx、.vue​​结尾的文件都需要进行编译
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    // references​​属性是 TypeScript 3.0 的新特性，允许将 TypeScript 程序拆分结构化
+    // 通过拆分成多个文件，分别配置不同的部分，达到更加清晰，可维护性更高的目的
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
