@@ -9,7 +9,7 @@ import App from "./App.vue";
 
 const app = createApp(App);
 
-import axios from "./utils/request";
+import axios from "./utils/axios";
 app.config.globalProperties.$http = axios;
 
 const pinia = createPinia();

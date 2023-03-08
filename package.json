@@ -2,7 +2,6 @@
     "name": "{{name}}",
     "private": true,
     "version": "1.0.0",
-    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
@@ -14,6 +13,7 @@
     },
     "dependencies": {
         "axios": "^0.27.2",
+        "echarts": "^5.4.1",
         "element-plus": "^2.2.12",
         "pinia": "^2.0.0-rc.10",
         "vue": "^3.2.37",

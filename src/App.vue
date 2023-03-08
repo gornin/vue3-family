@@ -1,35 +1,35 @@
 <script setup lang="ts">
-
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 </script>
 
 <template>
-  <div style="text-align:center;">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-    <a href="https://element-plus.gitee.io/zh-CN/" target="_blank">
-      <img src="./assets/element-plus-logo.svg" class="logo element" alt="Vue logo" />
-    </a>
+  <div class="app-view">
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+.app-view {
+  padding: 16px;
+  position: relative;
+  top: 60px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #ababab;
 }
-.logo.element:hover {
-  filter: drop-shadow(0 0 2em #459FFCaa);
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: #ababab;
 }
 </style>

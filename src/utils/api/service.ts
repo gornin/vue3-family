@@ -1,4 +1,4 @@
-import service from "../request";
+import service from "../axios";
 
 // 获取seller
 export function getSeller(params: any) {
