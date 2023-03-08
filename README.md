@@ -1,6 +1,6 @@
 # {{name}}
 
-# 安装 Vue3+ts+vite
+## 安装 Vue3 + Ts + Vite
 
 ```
 npm init vite@latest
@@ -15,7 +15,7 @@ npm i
 npm run dev
 ```
 
-# 安装 Element-Plus
+## 安装 Element-Plus
 
 ```
 npm install element-plus --save
@@ -42,7 +42,7 @@ createApp(App).use(ElementPlus).mount("#app");
 }
 ```
 
-## 自动导入两款插件使用方法
+### 自动导入两款插件使用方法
 
 ```
 #选择一个你喜欢的包管理器
@@ -88,14 +88,9 @@ export default defineConfig({
     <el-button>中文</el-button>
 ```
 
-效果如下：
-![image.png](./src/assets/mdImg/button.png)
+## 引入 router，axios，Pinia
 
----
-
-# 引入 router，axios，Pinia
-
-## 一、安装 router
+### 一、安装 router
 
 ```
 npm install vue-router
@@ -132,7 +127,7 @@ import App from "./App.vue";
 createApp(App).use(ElementPlus).use(router).mount("#app");
 ```
 
-### 更改页面结构
+#### 更改页面结构
 
 在 src 中新增 view 文件夹，里面新建 Home.vue
 
@@ -169,11 +164,11 @@ App.vue 页面
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/mdImg/vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
     <a href="https://element-plus.gitee.io/zh-CN/" target="_blank">
       <img
-        src="./assets/mdImg/element-plus-logo.svg"
+        src="./assets/element-plus-logo.svg"
         class="logo element"
         alt="Vue logo"
       />
@@ -200,18 +195,13 @@ App.vue 页面
 </style>
 ```
 
-效果：
-![elementPlus](./src/assets/mdImg/element-plus.png)
-
-## 二、安装 axios
+### 二、安装 axios
 
 ```
 npm install axios
 pnpm install axios
 ```
 
-可参考以下封装方法：
-![api](./src/assets/mdImg/axios.png)
 request.ts
 
 ```ts
@@ -315,27 +305,31 @@ getTest("放入params参数")
   });
 ```
 
-## 三、安装 Pinia
+### 三、安装 Pinia
 
 ```
 npm add pinia@next
 ```
 
-### 挂载 Pinia
+#### 挂载 Pinia
 
 main.ts
 如果按照上面步骤来的话可以直接替换 main.ts
 
 ```ts
 import { createApp, useAttrs } from "vue";
+import { createPinia } from "pinia";
+
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
+
 import router from "./router/index";
 import App from "./App.vue";
-import { createPinia } from "pinia";
 let app = createApp(App);
+
 import axios from "./utils/request";
 app.config.globalProperties.$http = axios;
+
 const pinia = createPinia();
 app.use(ElementPlus).use(pinia).use(router).mount("#app");
 ```
@@ -369,7 +363,7 @@ export const user = defineStore("user", {
 </script>
 ```
 
-# 安装 less
+## 安装 less
 
 ```
 npm install --save-dev less-loader less
